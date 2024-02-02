@@ -1,0 +1,5 @@
+package ch04_pjt_ex05.ems.member.service;
+
+public class MembershipDelete {
+
+}

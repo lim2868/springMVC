@@ -1,0 +1,34 @@
+package ch02_pjt_04;
+
+import java.util.Scanner;
+
+public class CalAssembler {
+	
+	MyCalculator calculator;
+	CalAddImpl calAdd;
+	CalSubImpl calSub;
+	CalMulImpl calMul;
+	CalDivImpl calDiv;
+	Scanner sc = new Scanner(System.in);
+	
+	public CalAssembler() {
+		calculator = new MyCalculator();
+		calAdd = new CalAddImpl();
+		calSub = new CalSubImpl();
+		calMul = new CalMulImpl();
+		calDiv = new CalDivImpl();
+		
+		assemble();
+	}
+	
+	public void assemble() {
+		System.out.print("first 연산자 : ");
+		sc.nextInt();
+		System.out.print("second 연산자 : ");
+		sc.nextInt();
+		calculator.calculate(10, 5, calAdd);
+		calculator.calculate(10, 5, calSub);
+		calculator.calculate(10, 5, calMul);
+		calculator.calculate(10, 5, calDiv);
+	}
+}

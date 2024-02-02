@@ -1,0 +1,39 @@
+package ch05_pjt_01_contact.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ch05_pjt_01.contact.ContactSetDTO;
+import ch05_pjt_01.contact.dao.ContactDao;
+
+public class ContactRegisterService {
+	
+	@Autowired
+	private ContactDao contactDao; 
+	
+//	public ContactRegisterService() {
+//		System.out.println("ContactRegisterService의 기본 생성자입니다.");
+//	}
+	 
+//	@Autowired
+//	public ContactRegisterService(ContactDao contactDao) {
+//		this.contactDao = contactDao; 
+//	}
+	
+	public void register(ContactSetDTO contactSetDTO) {
+		String name = contactSetDTO.getName();
+		if (verify(name)) {
+			contactDao.insert(contactSetDTO);
+		} else {
+			System.out.println("The name has alreday registered");
+		}
+	}
+	
+	public boolean verify(String name) {
+		ContactSetDTO contactSet = contactDao.select(name);
+		return contactSet == null ? true : false;
+	}
+	
+	public void setContactDao(ContactDao contactDao) {
+		this.contactDao = contactDao;
+	}
+}

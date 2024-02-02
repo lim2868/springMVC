@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- InitSampleData 빈 -->
+<bean id="initSampleData"
+		class="center.member.utils.InitSampleData">
+		<property name="mIds">
+			<array>
+				<value>rabbit</value>
+				<value>hippo</value>
+				<value>raccoon</value>
+				<value>elephant</value>
+				<value>lion</value>
+			</array>
+		</property>
+		<property name="mPws">
+			<array>
+				<value>p0001</value>
+				<value>p0002</value>
+				<value>p0003</value>
+				<value>p0004</value>
+				<value>p0005</value>
+			</array>
+		</property>
+		<property name="mTels">
+			<array>
+				<value>agatha</value>
+				<value>barbara</value>
+				<value>chris</value>
+				<value>doris</value>
+				<value>elva</value>
+			</array>
+		</property>
+		<property name="mMails">
+			<array>
+				<value>19</value>
+				<value>22</value>
+				<value>20</value>
+				<value>27</value>
+				<value>19</value>
+			</array>
+		</property>
+		<property name="mRDs">
+			<array>
+				<value>M</value>
+				<value>W</value>
+				<value>W</value>
+				<value>M</value>
+				<value>M</value>
+			</array>
+		</property>
+		<property name="mMDs">
+			<array>
+				<value>English</value>
+				<value>Korean</value>
+				<value>French</value>
+				<value>Philosophy</value>
+				<value>History</value>
+			</array>
+		</property>	
+	</bean>
+
+	<bean id="memberDAO" class="center.member.model.MemberDAO" />
+	<bean id="memberRegisterService" class="center.member.service.MemberRegisterService">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+
+	<bean id="memberModifyService" class="center.member.service.MemberModifyService">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+	<bean id="memberDeleteService" class="center.member.service.MemberDeleteService">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+	<bean id="memberSelectService" class="center.member.service.MemberSelectService">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+	<bean id="memberAllSelectService" class="center.member.service.MemberAllSelectService">
+		<constructor-arg ref="memberDAO" />
+	</bean>
+	<bean id="printMemberInformationService" 
+		class="center.member.service.PrintMemberInformationService">
+		<constructor-arg ref="memberAllSelectService" />
+	</bean>
+	
+	<!--  개발용 DBConnection Info -->
+	<bean id="dev_DBConnectionInfoDev"
+		class="center.member.model.DBConnectionInfoVO">
+		<property name="url" value="000.000.000.000" />
+		<property name="userId" value="admin" />
+		<property name="userPw" value="0000" />		
+	</bean>
+	
+	<!--  실제 서비스용 DBConnection Info -->
+	<bean id="real_DBConnectionInfo"
+		class="center.member.model.DBConnectionInfoVO">
+			<property name="url" value="111.111.111.111" />
+			<property name="userId" value="master" />
+			<property name="userPw" value="1111" />
+	</bean>
+	<bean id="emsInformationService"
+		class="center.member.service.EMSInformationService">
+		<property name="info" value="Education Management System program was developed in 2022." />
+		<property name="copyRight">
+			<value>COPYRIGHT(C)</value>
+		</property>
+		<property name="ver">
+			<value>The version is 1.0</value>
+		</property>
+		<property name="sYear">
+			<value>2022</value>
+		</property>
+		<property name="sMonth">
+			<value>3</value>
+		</property>
+		<property name="sDay">
+			<value>1</value>
+		</property>
+		<property name="eYear">
+			<value>2022</value>
+		</property>
+		<property name="eMonth">
+			<value>4</value>
+		</property>
+		<property name="eDay">
+			<value>30</value>
+		</property>
+		<property name="developers">
+			<list>
+				<value>Cheney.</value>
+				<value>Eloy.</value>
+				<value>Jasper.</value>
+				<value>Dillon.</value>
+				<value>Kian.</value>
+			</list>	
+		</property>
+		<property name="administrators">
+			<map>
+				<entry>
+					<key>
+						<value>Cheney</value>
+					</key>
+					<value>cheney@springPjt.org</value>
+				</entry>
+				<entry>
+					<key><value>Jasper</value></key>
+					<value>jasper@springPjt.org</value>
+				</entry>
+			</map>
+		</property>
+		<property name="dbInfos">
+			<map>
+				<entry>
+					<key><value>dev</value></key>
+					<ref bean="dev_DBConnectionInfoDev" />
+				</entry>
+				<entry>
+					<key><value>real</value></key>
+					<ref bean="real_DBConnectionInfo" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+</beans> 

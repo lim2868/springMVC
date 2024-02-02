@@ -1,0 +1,21 @@
+package ch04_pjt_ex05.ems.configuration;
+
+import org.springframework.context.annotation.Bean;
+
+import ch04_pjt_ex05.ems.utils.InitSampleData;
+
+public class MemberConfig {
+	
+	@Bean
+	public InitSampleData initSampleData() {
+		InitSampleData initSampleData = new InitSampleData();
+		
+		String[] userIds {"gumin001", "gumin002", "gumin003", "gumin004", "gumin005"};
+		initSampleData.setUserIds(userIds);
+		String[] userPws;
+		String[] userTels;
+		String[] userEmails;
+		String[] newSineups;
+		String[] lastMfs;
+	}
+}

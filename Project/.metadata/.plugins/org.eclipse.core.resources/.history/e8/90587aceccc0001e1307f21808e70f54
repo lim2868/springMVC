@@ -1,0 +1,48 @@
+package ch06_pjt_01.ems.configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import ch06_pjt_01.ems.member.DBConnectionInfo;
+import ch06_pjt_01.ems.member.dao.StudentDao;
+import ch06_pjt_01.ems.member.service.EMSInformationService;
+import ch06_pjt_01.ems.member.service.StudentRegisterService;
+
+@Configuration
+public class MemberConfig {
+	
+	@Bean
+	public StudentDao studentDao() {
+		return new StudentDao();
+	}
+	
+	@Bean
+	public StudentRegisterService studentRegisterService() {
+		return new StudentRegisterService(studentDao());
+	}
+	
+	@Bean
+	public DBConnectionInfo dev_DBConnectionInfoDev() {
+		DBConnectionInfo dbConnectionInfo = new DBConnectionInfo();
+		dbConnectionInfo.setUrl("000.000.000.000");
+		dbConnectionInfo.setUserId("admin");
+		dbConnectionInfo.setUserPw("0000");
+		
+		return dbConnectionInfo;
+	}
+	
+	@Bean
+	public DBConnectionInfo real_DBConnectionInfoDev() {
+		DBConnectionInfo dbConnectionInfo = new DBConnectionInfo();
+		dbConnectionInfo.setUrl("111.000.000.000");
+		dbConnectionInfo.setUserId("master");
+		dbConnectionInfo.setUserPw("1111");
+		
+		return dbConnectionInfo;
+	}
+	
+	@Bean
+	public EMSInformationService emsInformationService() {
+		
+	}
+}

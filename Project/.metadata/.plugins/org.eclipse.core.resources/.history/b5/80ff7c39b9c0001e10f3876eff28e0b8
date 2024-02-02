@@ -1,0 +1,36 @@
+package ch05_pjt_01_contact.service;
+
+import ch05_pjt_01.contact.ContactSetDTO;
+import ch05_pjt_01.contact.dao.ContactDao;
+
+public class ContactSearchService {
+	
+	private ContactDao contactDao;
+	
+//	public ContactSearchService() {
+//		System.out.println("ContactSearchService의 기본생성자입니다.");
+//	}
+	
+	public ContactSearchService(ContactDao contactDao) {
+		this.contactDao = contactDao;
+	}
+	
+	public ContactSetDTO searchContact(String name) {
+		if(verify(name)) {
+			 return contactDao.select(name);
+		} else {
+			System.out.println("Contact information is not available");
+		}
+		
+		return null;
+		}
+		
+	public boolean verify(String name) {
+		ContactSetDTO contactSet = contactDao.select(name);
+		return contactSet != null ? true : false;
+	}
+	
+	public void setContactDao(ContactDao contactDao) {
+	this.contactDao = contactDao;
+	}
+}

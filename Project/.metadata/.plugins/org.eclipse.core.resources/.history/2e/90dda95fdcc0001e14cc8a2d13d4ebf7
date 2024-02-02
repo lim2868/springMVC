@@ -1,0 +1,57 @@
+package ch04_pjt_ex05.ems.configuration;
+
+import org.springframework.context.annotation.Bean;
+
+import ch04_pjt_ex05.ems.member.dao.MembershipDAO;
+import ch04_pjt_ex05.ems.member.service.MembershipAllSelect;
+import ch04_pjt_ex05.ems.member.service.MembershipDelete;
+import ch04_pjt_ex05.ems.member.service.MembershipModify;
+import ch04_pjt_ex05.ems.member.service.MembershipRegister;
+import ch04_pjt_ex05.ems.member.service.MembershipSelect;
+import ch04_pjt_ex05.ems.member.service.PrintMembershipInformation;
+import ch04_pjt_ex05.ems.utils.InitSampleData;
+
+public class MemberConfig {
+	
+	
+	@Bean
+	public MembershipDAO membershipDao() {
+		return new MembershipDAO();
+	}
+	
+	@Bean
+	public MembershipDelete membershipDelete() {
+		return new MembershipDelete(membershipDao());
+	}
+	
+	@Bean
+	public MembershipModify membershipModify() {
+		return new MembershipModify(membershipDao());
+	}
+	
+	@Bean
+	public MembershipRegister membershipRegister() {
+		return new MembershipRegister(membershipDao());
+	}
+	
+	@Bean
+	public MembershipSelect membershipSelect() {
+		return new MembershipSelect(membershipDao());
+	}
+	
+	@Bean 
+	public MembershipAllSelect membershipAllSelect() {
+		return new MembershipAllSelect(membershipDao());
+	}
+	
+	@Bean
+	public PrintMembershipInformation printMembershipInformation() {
+		return new PrintMembershipInformation(membershipAllSelect());
+	}
+	
+	@Bean
+	public InitSampleData initSampleData() {
+		return new InitSampleData();
+		
+	}
+}

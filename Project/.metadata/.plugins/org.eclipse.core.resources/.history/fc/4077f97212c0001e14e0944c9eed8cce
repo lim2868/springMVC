@@ -1,0 +1,23 @@
+package ch04_pjt_ex05.ems;
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import ch04_pjt_ex05.ems.utils.InitSampleData;
+
+public class mainClass {
+
+	public static void main(String[] args) {
+		
+		GenericXmlApplicationContext ctx =
+				new GenericXmlApplicationContext("classpath:applicationContext.xml");
+	
+		
+		InitSampleData initSampleData = ctx.getBean("initSampleData",InitSampleData.class);
+		String[] userId = initSampleData.getUserId();
+		String[] userPw = initSampleData.getUserPw();
+		String[] userTel = initSampleData.getUserTel();
+		String[] userEmail = initSampleData.getUserEmail();
+		String[] NewSineup = initSampleData.getNewSineup();
+		String[] LastMf
+	}
+}

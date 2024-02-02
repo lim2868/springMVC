@@ -1,0 +1,59 @@
+package ch04_pjt_ex05.ems.utils;
+
+public class InitSampleData {
+	private String[] userIds =  {"gumin001", "gumin002", "gumin003", "gumin004", "gumin005"};
+	
+	private String[] userPws = {"p0001", "p0002", "p0003", "p0004", "p0005"};
+	
+	private String[] userTels = {"010-1234-5678", "010-3333-1111", "010-2222-1232", "010-2832-2875", "010-2826-2823"};
+	
+	private String[] userEmails = {"aa@naver.com", "bb@naver.com", "cc@naver.com", "dd@naver.com", "ee@naver.com"};
+	
+	private String[] newSineups = {"2022-11-22", "2022-10-30", "2022-12-21", "2022-10-11", "2022-11-10"};
+	
+	private String[] lastMfs = {"2023-11-10", "2023-11-10", "2023-11-10", "2023-11-10", "2023-11-10"};
+//	private String[] userIds;
+//	private String[] userPws;
+//	private String[] userTels;
+//	private String[] userEmails;
+//	private String[] newSineups;
+//	private String[] lastMfs;
+	public String[] getUserIds() {
+		return userIds;
+	}
+	public void setUserIds(String[] userIds) {
+		this.userIds = userIds;
+	}
+	public String[] getUserPws() {
+		return userPws;
+	}
+	public void setUserPws(String[] userPws) {
+		this.userPws = userPws;
+	}
+	public String[] getUserTels() {
+		return userTels;
+	}
+	public void setUserTels(String[] userTels) {
+		this.userTels = userTels;
+	}
+	public String[] getUserEmails() {
+		return userEmails;
+	}
+	public void setUserEmails(String[] userEmails) {
+		this.userEmails = userEmails;
+	}
+	public String[] getNewSineups() {
+		return newSineups;
+	}
+	public void setNewSineups(String[] newSineups) {
+		this.newSineups = newSineups;
+	}
+	public String[] getLastMfs() {
+		return lastMfs;
+	}
+	public void setLastMfs(String[] lastMfs) {
+		this.lastMfs = lastMfs;
+	}
+	
+	
+}

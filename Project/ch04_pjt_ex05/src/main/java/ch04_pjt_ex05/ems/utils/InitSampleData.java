@@ -1,0 +1,48 @@
+package ch04_pjt_ex05.ems.utils;
+
+public class InitSampleData {
+	private String[] userIds;
+	private String[] userPws;
+	private String[] userTels;
+	private String[] userEmails;
+	private String[] newSineups;
+	private String[] lastMfs;
+	public String[] getUserIds() {
+		return userIds;
+	}
+	public void setUserIds(String[] userIds) {
+		this.userIds = userIds;
+	}
+	public String[] getUserPws() {
+		return userPws;
+	}
+	public void setUserPws(String[] userPws) {
+		this.userPws = userPws;
+	}
+	public String[] getUserTels() {
+		return userTels;
+	}
+	public void setUserTels(String[] userTels) {
+		this.userTels = userTels;
+	}
+	public String[] getUserEmails() {
+		return userEmails;
+	}
+	public void setUserEmails(String[] userEmails) {
+		this.userEmails = userEmails;
+	}
+	public String[] getNewSineups() {
+		return newSineups;
+	}
+	public void setNewSineups(String[] newSineups) {
+		this.newSineups = newSineups;
+	}
+	public String[] getLastMfs() {
+		return lastMfs;
+	}
+	public void setLastMfs(String[] lastMfs) {
+		this.lastMfs = lastMfs;
+	}
+	
+	
+}

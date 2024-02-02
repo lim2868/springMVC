@@ -1,0 +1,13 @@
+package ch04_pjt_ex05.ems.configuration;
+
+import org.springframework.context.annotation.Bean;
+
+import ch04_pjt_ex05.ems.utils.InitSampleData;
+
+public class MemberConfig {
+	
+	@Bean
+	public InitSampleData initSampleData() {
+		return new InitSampleData();
+	}
+}

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="initSampleData"
+    	class="ch04_pjt_ex05.ems.utils.InitSampleData">
+    	<property name="userId">
+    		<array>
+    			<value>gumin001</value>
+    			<value>gumin002</value>
+    			<value>gumin003</value>
+    			<value>gumin004</value>
+    			<value>gumin005</value>
+    		</array>	
+    	</property>
+    	<property name="userPw">
+    		<array>
+				<value>p0001</value>
+    			<value>p0002</value>
+    			<value>p0003</value>
+    			<value>p0004</value>
+    			<value>p0005</value>		
+    		</array>
+    	</property>
+    	<property name="userTel">
+    		<array>
+    			<value>010-1234-5678</value>
+    			<value>010-3333-1111</value>
+    			<value>010-2222-1232</value>
+    			<value>010-2832-2875</value>
+    			<value>010-2826-2823</value>
+    		</array>
+    	</property>
+    	<property name="userEmail">
+    		<array>
+    			<value>aa@naver.com</value>
+    			<value>bb@naver.com</value>
+    			<value>cc@naver.com</value>
+    			<value>dd@naver.com</value>
+    			<value>ee@naver.com</value>
+    		</array>
+    	</property>
+    	<property name="NewSineup">
+    		<array>
+    			<value>2022-11-22</value>
+    			<value>2022-10-30</value>
+    			<value>2022-12-21</value>
+    			<value>2022-10-11</value>
+    			<value>2022-11-10</value>
+    		</array>
+    	</property>
+    	<property name="LastMf">
+    		<array>
+    			<value>2023-11-10</value>
+    			<value>2023-11-10</value>
+    			<value>2023-11-10</value>
+    			<value>2023-11-10</value>
+    			<value>2023-11-10</value>
+    		</array>
+    	</property>
+    </bean>
+    
+    <bean id="membershipDao" class="ch04_pjt_ex05.ems.member.dao.MembershipDAO" />
+    <bean id="membershipAllSelcet" class="ch04_pjt_ex05.ems.member.service.MembershipAllSelect">
+		<constructor-arg ref="membershipDao"/>    
+	</bean>
+	<bean id="membershipDelete" class="ch04_pjt_ex05.ems.member.service.MembershipDelete">
+		<constructor-arg ref="membershipDao"/>    
+	</bean>
+	<bean id="membershipModify" class="ch04_pjt_ex05.ems.member.service.MembershipModify">
+		<constructor-arg ref="membershipDao"/>    
+	</bean>
+	<bean id="membershipRegister" class="ch04_pjt_ex05.ems.member.service.MembershipRegister">
+		<constructor-arg ref="membershipDao"/>    
+	</bean>
+	<bean id="membershipSelect" class="ch04_pjt_ex05.ems.member.service.MembershipSelect">
+		<constructor-arg ref="membershipDao"/>
+	</bean>
+    <bean id="printMembershipInformation"
+     class="ch04_pjt_ex05.ems.member.service.PrintmembershipInformation">
+    	<constructor-arg ref="membershipAllSelect"/>
+    </bean>
+</beans>

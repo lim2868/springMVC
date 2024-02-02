@@ -1,0 +1,13 @@
+package ch02_pjt_01;
+
+public class MainClass {
+	
+	public static void main(String[] args) {
+	
+		MyCalculator calculator = new MyCalculator();
+		calculator.CalAdd(10, 5);
+		calculator.CalSub(10, 5);
+		calculator.CalMul(10, 5);
+		calculator.CalDiv(10, 5);
+	}
+}

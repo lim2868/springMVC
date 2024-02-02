@@ -1,0 +1,26 @@
+package ch04_pjt_ex05.ems.member.service;
+
+import ch04_pjt_ex05.ems.member.MembershipDTO;
+import ch04_pjt_ex05.ems.member.dao.MembershipDAO;
+
+public class MembershipDelete {
+	
+private MembershipDAO membershipDao;
+	
+	public MembershipDelete(MembershipDAO membershipDao) {
+		this.membershipDao = membershipDao;
+	}
+	
+	public void delete(String userId) {
+		if(verify(userId)) {
+			membershipDao.delete(userId);
+		} else {
+			System.out.println("Member information is not available");
+		}
+	}
+	
+	public boolean verify(String userId) {
+		MembershipDTO mbmber = membershipDao.select(userId);
+		return member != null ? true : false;
+	}
+}

@@ -1,0 +1,29 @@
+import java.util.Map;
+
+import ch04_pjt_ex05.ems.member.MembershipDTO;
+
+
+public class MembershipDAO {
+
+private Map<String, MembershipDTO> membershipDB = new HashMap<String, MembershipDTO>();
+	
+	public void insert(MembershipDTO member) {
+		membershipDB.put(member.getUserId(), member);
+	}
+	
+	public MembershipDTO select(String member) {
+		return membershipDB.get(member);
+	}
+	
+	public void update(MembershipDTO member) {
+		membershipDB.put(member.getUserId(), member);
+	}
+	
+	public void delete(String userId) {
+		membershipDB.remove(userId);
+	}
+	
+	public Map<String, MembershipDTO> getMembershipDB(){
+		return membershipDB;
+	}
+}

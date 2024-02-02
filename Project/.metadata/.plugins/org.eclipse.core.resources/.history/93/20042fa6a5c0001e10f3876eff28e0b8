@@ -1,0 +1,5 @@
+package ch05_pjt_01_contact.serivice;
+
+public class ContactSearchService {
+
+}

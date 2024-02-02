@@ -1,0 +1,27 @@
+package ch06_pjt_01.ems.configuration;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import ch06_pjt_01.ems.member.DBConnectionInfo;
+import ch06_pjt_01.ems.member.dao.StudentDao;
+import ch06_pjt_01.ems.member.service.StudentRegisterService;
+
+@Configuration
+public class MemberConfig {
+	
+	@Bean
+	public StudentDao studentDao() {
+		return new StudentDao();
+	}
+	
+	@Bean
+	public StudentRegisterService studentRegisterService() {
+		return new StudentRegisterService(studentDao());
+	}
+	
+	@Bean
+	public DBConnectionInfo dev_DBConnectionInfoDev() {
+		return new DBConnectionInfo();
+	}
+}

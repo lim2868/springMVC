@@ -1,0 +1,33 @@
+package ch04_pjt_ex05.ems.configuration;
+
+import org.springframework.context.annotation.Bean;
+
+import ch04_pjt_ex05.ems.utils.InitSampleData;
+
+public class MemberConfig {
+	
+	@Bean
+	public InitSampleData initSampleData() {
+		InitSampleData initSampleData = new InitSampleData();
+		
+		String[] userIds =  {"gumin001", "gumin002", "gumin003", "gumin004", "gumin005"};
+		initSampleData.setUserIds(userIds);
+		
+		String[] userPws = {"p0001", "p0002", "p0003", "p0004", "p0005"};
+		initSampleData.setUserPws(userPws);
+		
+		String[] userTels = {"010-1234-5678", "010-3333-1111", "010-2222-1232", "010-2832-2875", "010-2826-2823"};
+		initSampleData.setUserTels(userTels);
+		
+		String[] userEmails = {"aa@naver.com", "bb@naver.com", "cc@naver.com", "dd@naver.com", "ee@naver.com"};
+		initSampleData.setUserEmails(userEmails);
+		
+		String[] newSineups = {"2022-11-22", "2022-10-30", "2022-12-21", "2022-10-11", "2022-11-10"};
+		initSampleData.setNewSineups(newSineups);
+		
+		String[] lastMfs = {"2023-11-10", "2023-11-10", "2023-11-10", "2023-11-10", "2023-11-10"};
+		initSampleData.setLastMfs(lastMfs);
+		
+		return initSampleData;
+	}
+}

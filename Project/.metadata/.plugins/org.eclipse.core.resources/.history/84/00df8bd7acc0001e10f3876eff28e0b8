@@ -1,0 +1,33 @@
+package ch05_pjt_01.contact;
+
+
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+import ch05_pjt_01.contact.utils.InitSampleData;
+import ch05_pjt_01_contact.serivice.ContactRegisterService;
+import ch05_pjt_01_contact.serivice.ContactSearchService;
+
+public class MainClass {
+	
+	public static void main(String[] args) {
+		
+		GenericXmlApplicationContext ctx =
+				new GenericXmlApplicationContext("classpath:appCtx.xml");
+		
+		InitSampleData initSampleData =
+				ctx.getBean("initSampleData", InitSampleData.class);
+		String[] names = initSampleData.getNames();
+		String[] phoneNumbers = initSampleData.getPhoneNumbers();
+		
+		ContactRegisterService registerService =
+				ctx.getBean("registerService", ContactRegisterService.class);
+		for(int i=0; i<names.length; i++) {
+			ContactSetDTO contactSetDTO = new ContactSetDTO(names[i], phoneNumbers[i]);
+			registerService.register(contactSetDTO);
+		}
+		
+		ContactSearchService searchService =
+				ctx.getBean("searchService", ContactSearchService.class);
+	}
+	
+}

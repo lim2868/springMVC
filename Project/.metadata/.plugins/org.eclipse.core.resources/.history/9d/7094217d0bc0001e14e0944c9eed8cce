@@ -1,0 +1,20 @@
+package ch04_pjt_ex05.ems.member.service;
+
+import java.util.Map;
+
+import ch04_pjt_ex05.ems.member.dao.MembershipDAO;
+
+
+public class MembershipAllSelect {
+
+private MembershipDAO membershipDao;
+	
+	public StudentAllSelectService(StudentDao studentDao) {
+		this.studentDao = studentDao;
+	}
+	
+	public Map<String, StudentDTO> allSelect(){
+		return studentDao.getStudentDB();
+	}
+}
+}

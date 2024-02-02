@@ -1,0 +1,49 @@
+package ch04_pjt_ex05;
+
+public class MemberInformation {
+	
+	String mId;
+	String mPw;
+	String mTel;
+	String mEmail;
+	String mNewSineup;
+	String mLastMf;
+	public String getmId() {
+		return mId;
+	}
+	public void setmId(String mId) {
+		this.mId = mId;
+	}
+	public String getmPw() {
+		return mPw;
+	}
+	public void setmPw(String mPw) {
+		this.mPw = mPw;
+	}
+	public String getmTel() {
+		return mTel;
+	}
+	public void setmTel(String mTel) {
+		this.mTel = mTel;
+	}
+	public String getmEmail() {
+		return mEmail;
+	}
+	public void setmEmail(String mEmail) {
+		this.mEmail = mEmail;
+	}
+	public String getmNewSineup() {
+		return mNewSineup;
+	}
+	public void setmNewSineup(String mNewSineup) {
+		this.mNewSineup = mNewSineup;
+	}
+	public String getmLastMf() {
+		return mLastMf;
+	}
+	public void setmLastMf(String mLastMf) {
+		this.mLastMf = mLastMf;
+	}
+	
+	
+	}
